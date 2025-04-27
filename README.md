@@ -1,1 +1,1 @@
-# bootdev_static_site_2
+# Static Site Generator
