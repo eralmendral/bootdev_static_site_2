@@ -2,7 +2,7 @@ from enum import Enum
 from htmlnode import LeafNode
 
 class TextType(Enum):
-  NORMAL = "Normal text"
+  TEXT = "text"
   BOLD = "**Bold text**"
   ITALIC = "_Italic text_"
   CODE = "`Code text`"
@@ -33,7 +33,7 @@ class TextNode:
     if text_node.text_type not in TextType:
       raise ValueError(f"Invalid text_type: {text_node.text_type}")
     
-    if text_node.text_type == TextType.NORMAL:
+    if text_node.text_type == TextType.TEXT:
       return LeafNode(None, text_node.text)
     elif text_node.text_type == TextType.BOLD:
       return LeafNode("strong", text_node.text)
