@@ -1,1 +1,1 @@
-python3 src/main.py "bootdev_static_site_2"
+python3 src/main.py "https://github.com/eralmendral/bootdev_static_site_2" 
