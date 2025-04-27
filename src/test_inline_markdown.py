@@ -153,7 +153,12 @@ class TestInlineMarkdown(unittest.TestCase):
         new_nodes = split_nodes_delimiter(new_nodes, "_", TextType.ITALIC)
         new_nodes = split_nodes_image(new_nodes)
         new_nodes = split_nodes_link(new_nodes)
-        return new_nodes
+        self.assertEqual(
+            [
+                TextNode("Sample", TextType.TEXT),
+            ],
+            new_nodes,
+        )
     
     def test_text_to_textnodes_with_bold(self):
         text = "This is **bold** text"
