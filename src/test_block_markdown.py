@@ -1,4 +1,5 @@
 from block_markdown import (markdown_to_blocks, block_to_block_type, markdown_to_html_node, BlockType)
+from gencontent import extract_title
 
 def test_markdown_to_blocks(self):
     md = """
@@ -61,3 +62,37 @@ the **same** even with inline stuff
         html,
         "<div><pre><code>This is text that _should_ remain\nthe **same** even with inline stuff\n</code></pre></div>",
     )
+    
+    
+def test_extract_title(self):
+    md = """
+# This is a title
+This is a paragraph.
+"""
+    title = extract_title(md)
+    self.assertEqual(title, "This is a title")
+    md = """
+# Another title
+This is another paragraph.
+"""
+    title = extract_title(md)
+    self.assertEqual(title, "Another title")
+    md = """
+# Title with multiple lines
+This is a paragraph.
+"""
+    title = extract_title(md)
+    self.assertEqual(title, "Title with multiple lines")
+    md = """
+# Title with multiple lines and extra spaces
+This is a paragraph.
+"""
+    title = extract_title(md)
+    self.assertEqual(title, "Title with multiple lines and extra spaces")
+    md = """
+# Title with multiple lines and extra spaces
+This is a paragraph.
+"""
+    title = extract_title(md)
+    self.assertEqual(title, "Title with multiple lines and extra spaces")
+    
