@@ -11,7 +11,7 @@ dir_path_content = "./content"
 template_path = "./template.html"
 
 # Get the basepath from the first CLI argument or default to "/"
-basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
+basepath = sys.argv[0] if len(sys.argv) > 0 else "/ "
 
 
 def main():
